@@ -29,7 +29,7 @@ args = vars(ap.parse_args())
 
 # initialize the number of epochs to train for, initial learning rate,
 # batch size, and image dimensions
-EPOCHS = 100
+EPOCHS = 60
 INIT_LR = 1e-3
 BS = 32
 IMAGE_DIMS = (96, 96, 3)
@@ -120,5 +120,5 @@ plt.xlabel("Epoch #")
 plt.ylabel("Loss/Accuracy")
 plt.legend(loc="upper left")
 plt.savefig(args["plot"])
-
+plt.show()
 

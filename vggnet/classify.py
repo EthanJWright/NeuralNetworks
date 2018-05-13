@@ -15,6 +15,8 @@ import os
 ap = argparse.ArgumentParser()
 ap.add_argument("-m", "--model", required=True,
 	help="path to trained model model")
+ap.add_argument("-l", "--labelbin", required=True,
+	help="path to label binarizer")
 ap.add_argument("-i", "--image", required=True,
 	help="path to input image")
 args = vars(ap.parse_args())
@@ -33,17 +35,16 @@ image = np.expand_dims(image, axis=0)
 # binarizer
 print("[INFO] loading network...")
 model = load_model(args["model"])
+lb = pickle.loads(open(args["labelbin"], "rb").read())
 
 # classify the input image
 print("[INFO] classifying image...")
 proba = model.predict(image)[0]
 idx = np.argmax(proba)
+label = lb.classes_[idx]
+print(label)
+print(proba)
 
-prob = proba[idx] * 100
-print("Results of Classification: outcome - puddles | confidence - ", prob)
-if prob >= 60:
-    print("Object is in the photo.")
-elif prob > 25 and prob < 60:
-    print("Cannot determine if object is here.")
-else:
-    print("Object is likely not in the photo.")
+class_labels = lb.classes_.tolist()
+print(class_labels)
+print(proba[idx] * 100)
