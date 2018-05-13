@@ -1,7 +1,7 @@
 ### Convolutional Neural Networks
 
 #### Neural Network Environment
-The guide for getting the environment setup was adopted from [here](https://www.pyimagesearch.com/2017/09/25/configuring-ubuntu-for-deep-learning-with-python/)
+The guide for getting the environment setup was adapted from [here](https://www.pyimagesearch.com/2017/09/25/configuring-ubuntu-for-deep-learning-with-python/)
 
 1. Install Ubuntu Dependencies
 ```
