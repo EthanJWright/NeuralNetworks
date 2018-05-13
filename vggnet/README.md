@@ -17,5 +17,10 @@
    ```
 2. Start the classifier:
    ```
-    python train.py --dataset dataset --model output.model --labelbin lb.pickle
+    python train.py --dataset dataset --model output.model 
    ```
+3. Once your model is built, classify a new image
+   ```
+   python classify.py --model output.model --image /path/to/image.jpg
+   ```
+
